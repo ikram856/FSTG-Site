@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - FST Marrakech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003d82;
+            --secondary-blue: #005ba8;
+            --accent-orange: #d97636;
+            --light-orange: #f4a261;
+            --dark-navy: #002147;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --shadow: rgba(0, 61, 130, 0.15);
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            overflow-x: hidden;
+        }
+
+        /* En-tête avec effet glassmorphism */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .logo-section h1 {
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation moderne */
+        .main-nav {
+            text-align: center;
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-orange);
+            transition: left 0.3s ease;
+            z-index: -1;
+            border-radius: 25px;
+        }
+
+        .main-nav a:hover::before {
+            left: 0;
+        }
+
+        .main-nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(217, 118, 54, 0.4);
+        }
+
+        /* Menu déroulant */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            border-radius: 15px;
+            overflow: hidden;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border: 2px solid var(--light-orange);
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin: 0;
+            border-radius: 0;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: linear-gradient(90deg, var(--light-orange) 0%, rgba(244, 162, 97, 0.2) 100%);
+            border-left-color: var(--accent-orange);
+            padding-left: 25px;
+            transform: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Contenu principal */
+        main {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        /* Bannière héro */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(0, 61, 130, 0.95) 0%, rgba(217, 118, 54, 0.9) 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 61, 130, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-banner h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .hero-banner p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        /* Grille de contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 61, 130, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(217, 118, 54, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 61, 130, 0.15);
+            border-color: var(--accent-orange);
+        }
+
+        .contact-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-card strong {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Formulaire moderne */
+        .form-section {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 61, 130, 0.08);
+            margin-bottom: 40px;
+            border: 1px solid rgba(217, 118, 54, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .form-section h2 {
+            color: var(--primary-blue);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid var(--accent-orange);
+            position: relative;
+            font-weight: 700;
+        }
+
+        .form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(217, 118, 54, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 61, 130, 0.3);
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 61, 130, 0.4);
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--light-orange) 100%);
+        }
+
+        /* Assistant AI */
+        .ai-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .ai-button {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--light-orange) 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(217, 118, 54, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .ai-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(217, 118, 54, 0.5);
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 400px;
+            height: 550px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideInUp 0.4s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-chat:hover {
+            transform: rotate(90deg);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 80%;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            margin-right: auto;
+        }
+
+        .message.user {
+            background: var(--light-orange);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input-area input:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .send-button {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--light-orange) 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(217, 118, 54, 0.3);
+        }
+
+        /* Quick options */
+        .quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+        }
+
+        .quick-option {
+            background: rgba(217, 118, 54, 0.1);
+            border: 2px solid var(--light-orange);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .quick-option:hover {
+            background: var(--accent-orange);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Carte */
+        .map-section {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 61, 130, 0.08);
+            margin-bottom: 40px;
+            border: 1px solid rgba(217, 118, 54, 0.1);
+        }
+
+        .map-section h2 {
+            color: var(--primary-blue);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid var(--accent-orange);
+            position: relative;
+            font-weight: 700;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            height: 400px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.3em;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 50%, var(--accent-orange) 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-orange);
+        }
+
+        footer h3 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+            line-height: 2;
+            font-size: 1.05em;
+        }
+
+        footer a {
+            color: var(--light-orange);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo-section h1 {
+                font-size: 1.4em;
+            }
+
+            .main-nav a {
+                display: block;
+                margin: 8px 0;
+            }
+
+            .hero-banner {
+                padding: 60px 25px;
+            }
+
+            .hero-banner h2 {
+                font-size: 2em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-window {
+                width: 90%;
+                right: 5%;
+            }
+
+            .ai-button {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="logo_fstg.jpg" alt="Logo FST" class="logo">
+                <h1>FST - Faculté des Sciences et Techniques</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="acceuil.html">Accueil</a>
+                <div class="dropdown">
+                    <a href="Formation.html" class="dropbtn">Formations</a>
+                    <div class="dropdown-content">
+                        <a href="Formation.html#licence">Licences</a>
+                        <a href="Formation.html#master">Masters</a>
+                        <a href="Formation.html#doctorat">Doctorats</a>
+                        <a href="Formation.html#ingenieur">Cycle d'Ingénieur</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="departement.html" class="dropbtn">Départements</a>
+                    <div class="dropdown-content">
+                        <a href="departement.html#mathematiques">Mathématiques</a>
+                        <a href="departement.html#physique">Physique Appliquée</a>
+                        <a href="departement.html#chimie">Sciences Chimiques</a>
+                        <a href="departement.html#biologie">Biologie</a>
+                        <a href="departement.html#geologie">Sciences de la Terre</a>
+                        <a href="departement.html#genie-civil">Génie Civil</a>
+                        <a href="departement.html#informatique">Informatique</a>
+                        <a href="departement.html#communication">Techniques de Communication</a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
+                <div class="dropdown">
+                    <a href="recherche.html" class="dropbtn">Recherche</a>
+                    <div class="dropdown-content">
+                        <a href="recherche.html#laboratoires">Laboratoires</a>
+                        <a href="recherche.html#projets">Projets de recherche</a>
+                        <a href="recherche.html#publications">Publications</a>
+                    </div>
+                </div>
+                <a href="galerie.html">Galerie</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Bannière héro -->
+        <section class="hero-banner">
+            <h2>Contactez-nous</h2>
+            <p>Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+        </section>
+
+        <!-- Cartes d'information -->
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📍 Adresse</h3>
+                <p><strong>Faculté des Sciences et Techniques</strong></p>
+                <p>Av. Abdelkrim Khattabi, Guéliz</p>
+                <p>B.P. 549, Marrakech</p>
+                <p>Maroc</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>📞 Téléphone</h3>
+                <p><strong>Standard:</strong> +212 524 43 34 04</p>
+                <p><strong>Fax:</strong> +212 524 43 34 70</p>
+                <p><strong>Urgences:</strong> +212 6 70 09 95 00</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>✉️ Email</h3>
+                <p><strong>Email général:</strong></p>
+                <p>contact@fstg-marrakech.ac.ma</p>
+                <p><strong>Scolarité:</strong></p>
+                <p>scolarite@fstg-marrakech.ac.ma</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>🕐 Horaires</h3>
+                <p><strong>Lundi - Vendredi:</strong></p>
+                <p>8h00 - 16h30</p>
+                <p><strong>Samedi:</strong> 8h00 - 12h00</p>
+                <p><strong>Dimanche:</strong> Fermé</p>
+            </div>
+        </div>
+
+        <!-- Formulaire de contact -->
+        <section class="form-section">
+            <h2>Formulaire de contact</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="code">Code Massar (optionnel)</label>
+                    <input type="text" id="code" name="code_massar" placeholder="Votre code Massar">
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="+212 XX XX XX XX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sujet">Sujet *</label>
+                    <select id="sujet" name="sujet" required>
+                        <option value="">-- Choisissez un sujet --</option>
+                        <option value="info">Demande d'information</option>
+                        <option value="inscription">Inscription</option>
+                        <option value="reclamation">Réclamation</option>
+                        <option value="stage">Stage</option>
+                        <option value="partenariat">Partenariat</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                </div>
+                
+                <button type="submit">Envoyer le message</button>
+            </form>
+        </section>
+
+        <!-- Carte -->
+        <section class="map-section">
+    <h2>Localisation</h2>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.123456789!2d-7.989!3d31.627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7c123456789%3A0x123456789abcdef!2sFST%20Marrakech!5e0!3m2!1sfr!2sma!4v1690000000000!5m2!1sfr!2sma" 
+        width="100%" 
+        height="450" 
+        style="border:0; border-radius:15px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    </section>
+
+    </main>
+
+    <!-- Assistant AI -->
+    <div class="ai-assistant">
+        <button class="ai-button" id="aiToggle">🤖</button>
+        
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>Assistant FST</h3>
+                <button class="close-chat" id="closeChat">×</button>
+            </div>
+            
+            <div class="quick-options">
+                <button class="quick-option" data-question="formations">Formations disponibles</button>
+                <button class="quick-option" data-question="inscription">Procédure d'inscription</button>
+                <button class="quick-option" data-question="contact">Coordonnées</button>
+                <button class="quick-option" data-question="horaires">Horaires</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Bonjour! Je suis l'assistant virtuel de la FST. Comment puis-je vous aider aujourd'hui? 😊
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Tapez votre message...">
+                <button class="send-button" id="sendMessage">Envoyer</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h3>Faculté des Sciences et Techniques</h3>
+        <p>
+            Adresse: B.P. 549, Avenue Abdelkrim Khattabi<br>
+            Marrakech, Maroc<br>
+            Téléphone: +212 5 24 43 43 43<br>
+            Email: <a href="mailto:contact@fst-marrakech.ac.ma">contact@fst-marrakech.ac.ma</a>
+        </p>
+        <p>&copy; 2025 FST - Faculté des Sciences et Techniques. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Base de connaissances de l'assistant
+        const knowledgeBase = {
+            formations: {
+                response: "🎓 La FST propose plusieurs formations:\n\n• Licences professionnelles\n• Masters spécialisés\n• Doctorats\n• Cycle d'Ingénieur\n\nPour plus de détails, visitez la page Formations ou contactez le service de scolarité.",
+                keywords: ["formation", "licence", "master", "doctorat", "ingénieur", "étude", "diplôme"]
+            },
+            inscription: {
+                response: "📝 Procédure d'inscription:\n\n1. Pré-inscription en ligne à partir du 1er juillet 2025\n2. Dépôt du dossier complet\n3. Sélection selon les critères\n4. Confirmation d'inscription\n\nContact: scolarite@fstg-marrakech.ac.ma",
+                keywords: ["inscription", "inscrire", "s'inscrire", "candidature", "dossier", "préinscription"]
+            },
+            contact: {
+                response: "📞 Coordonnées FST:\n\n• Standard: +212 524 43 34 04\n• Fax: +212 524 43 34 70\n• Email: contact@fstg-marrakech.ac.ma\n• Adresse: Av. Abdelkrim Khattabi, Marrakech",
+                keywords: ["contact", "téléphone", "email", "adresse", "appeler", "joindre"]
+            },
+            horaires: {
+                response: "🕐 Horaires d'ouverture:\n\n• Lundi - Vendredi: 8h00 - 16h30\n• Samedi: 8h00 - 12h00\n• Dimanche: Fermé\n\nServices disponibles pendant ces horaires.",
+                keywords: ["horaire", "ouverture", "heure", "quand", "disponible"]
+            },
+            departements: {
+                response: "🏛️ Départements de la FST:\n\n• Mathématiques\n• Physique Appliquée\n• Sciences Chimiques\n• Biologie\n• Sciences de la Terre\n• Génie Civil\n• Informatique\n• Techniques de Communication",
+                keywords: ["département", "spécialité", "filière", "domaine"]
+            },
+            stage: {
+                response: "💼 Pour les stages:\n\n• Contactez le service des stages\n• Préparez votre CV et lettre de motivation\n• Consultez les offres disponibles\n\nEmail: contact@fstg-marrakech.ac.ma",
+                keywords: ["stage", "stages", "pfe", "projet"]
+            }
+        };
+
+        // Éléments DOM
+        const aiToggle = document.getElementById('aiToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const quickOptions = document.querySelectorAll('.quick-option');
+        const contactForm = document.getElementById('contactForm');
+
+        // Toggle chat window
+        aiToggle.addEventListener('click', () => {
+            chatWindow.classList.toggle('active');
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+        });
+
+        // Fonction pour ajouter un message
+        function addMessage(text, isBot = true) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isBot ? 'bot' : 'user'}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Fonction pour trouver une réponse
+        function findResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Recherche dans la base de connaissances
+            for (const [key, data] of Object.entries(knowledgeBase)) {
+                for (const keyword of data.keywords) {
+                    if (lowerMessage.includes(keyword)) {
+                        return data.response;
+                    }
+                }
+            }
+
+            // Réponses par défaut pour questions courantes
+            if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
+                return "Bonjour! 👋 Comment puis-je vous aider aujourd'hui?";
+            }
+            
+            if (lowerMessage.includes('merci')) {
+                return "De rien! Je suis là pour vous aider. N'hésitez pas si vous avez d'autres questions! 😊";
+            }
+
+            if (lowerMessage.includes('aide') || lowerMessage.includes('help')) {
+                return "Je peux vous aider avec:\n• Informations sur les formations\n• Procédures d'inscription\n• Coordonnées et horaires\n• Départements disponibles\n• Stages et projets\n\nQue souhaitez-vous savoir?";
+            }
+
+            // Réponse par défaut
+            return "Je n'ai pas trouvé d'information spécifique sur ce sujet. Pour une réponse précise, contactez-nous:\n📞 +212 524 43 34 04\n📧 contact@fstg-marrakech.ac.ma\n\nOu utilisez le formulaire de contact ci-dessus.";
+        }
+
+        // Envoyer un message
+        function sendUserMessage() {
+            const message = chatInput.value.trim();
+            if (message === '') return;
+
+            // Ajouter le message de l'utilisateur
+            addMessage(message, false);
+            chatInput.value = '';
+
+            // Simuler un délai de réponse
+            setTimeout(() => {
+                const response = findResponse(message);
+                addMessage(response, true);
+            }, 500);
+        }
+
+        // Event listeners
+        sendMessage.addEventListener('click', sendUserMessage);
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+
+        // Quick options
+        quickOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const question = option.getAttribute('data-question');
+                const questionText = option.textContent;
+                
+                addMessage(questionText, false);
+                
+                setTimeout(() => {
+                    if (knowledgeBase[question]) {
+                        addMessage(knowledgeBase[question].response, true);
+                    }
+                }, 500);
+            });
+        });
+
+        // Gestion du formulaire de contact
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Animation de confirmation
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✓ Message envoyé!';
+            submitBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                contactForm.reset();
+                
+                // Message de confirmation dans le chat si ouvert
+                if (chatWindow.classList.contains('active')) {
+                    addMessage("Merci! Votre message a été envoyé avec succès. Notre équipe vous répondra dans les plus brefs délais. 📧", true);
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
